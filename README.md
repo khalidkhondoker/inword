@@ -1,16 +1,15 @@
-<h3>How to Use</h3>
-                        <p>
-                            InWord works with it jQuery and Bootstrap. After Jquery and Bootstrap, just add the
-                            inword.js and inword.css, and see the magic!
-                        </p>
-                        <pre><xmp><!-- CSS -->
+How to Use
+InWord works with it jQuery and Bootstrap. After Jquery and Bootstrap, just add the
+inword.js and inword.css, and see the magic!
+
+<pre><!-- CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="inword.css">
 
 <!-- SCRIPT-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-<script src="inword.js"></script></xmp></pre>
+<script src="inword.js"></script></pre>
 
                         <h3>Basic Usage</h3>
                         <p>Just add <code>$('element').inword()</code> to your DOM element, and nothing else!</p>
