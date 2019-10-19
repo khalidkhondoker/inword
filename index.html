@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>InWord :: Number in Word</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="inword.css">
+
+    <!-- SCRIPT-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="inword.js"></script>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1 text-center">
+                <h2>In Word</h2>
+                <p>Shows any numeric value in word in different styles, so you don't have to count your input</p>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <ul class="nav nav-tabs navbar-right">
+                    <li class="active"><a data-toggle="tab" href="#demo">Demo</a></li>
+                    <li><a data-toggle="tab" href="#documentation">Documentation</a></li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+
+        <div class="tab-content">
+            <div id="demo" class="tab-pane fade in active">
+                <div class="row">
+                    <div class="col-md-4 col-md-offset-1">
+                        <form>
+                            <div class="form-group">
+                                <label for="example1">Very Simple</label>
+                                <input type="number" class="form-control" id="example1">
+                                <span class="help-block">Just add <code>$('element').inword()</code>, nothing
+                                    else!</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="example2">You want it on 'tooltip'?</label>
+                                <input data-container="body" type="number" class="form-control" id="example2">
+                                <span class="help-block">Just use
+                                    <code>$('element').inword(type: 'tooltip')</code></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="example3">Another Example</label>
+                                <input type="number" class="form-control" id="example3">
+                                <span class="help-block">To put it just next to input, use
+                                    <code>$('element').inword({type : 'placer'})</code></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="example4">Where you want your 'placer'?</label>
+                                <input type="number" class="form-control" id="example4">
+                                <span class="help-block">Do you want the 'placer' in your custom position?
+                                    <code>$('element').inword({type: 'placer', placerId : 'placer1'})</code></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="example5">Or maybe here!</label>
+                                <input type="number" class="form-control" id="example5">
+                                <span class="help-block">'helper' block can be any where with your custom design!
+                                    <code>$('element').inword({type: 'placer', placerId : 'placer2'})</code></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="example9">Prefix/Suffix</label>
+                                <input type="number" class="form-control" id="example9" />
+                                <span class="help-block">You can use it like
+                                    <code>$('element').inword({prefix: '$', suffix : 'only'})</code></span>
+                            </div>
+                        </form>
+                    </div>
+
+
+
+                    <div class="col-md-4 col-md-offset-1">
+                        <form>
+                            <div class="form-group">
+                                <label for="example6">Readonly Input</label>
+                                <input type="text" class="form-control" id="example6" readonly value="435643">
+                                <span class="help-block">Click on the Input</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="example7">Disabled Input</label>
+                                <span class="d-inline-block" tabindex="0" data-toggle="tooltip" id="example7">
+                                    <input type="number" class="form-control" disabled value="546898">
+                                </span>
+                                <span class="help-block">See the documentation how to handle with disabled Input</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="example8">Negative Figure/Decimal Support</label>
+                                <input type="number" class="form-control" id="example8" readonly value="-7357.34">
+                                <span class="help-block">Support for Negative Figure & Decimal Point</span>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Non Input Element</label>
+                                <div class="text-right">
+                                    <ul class="list-group">
+                                        <li class="list-group-item example10">38437983</li>
+                                        <li class="list-group-item example10">45,450.03</li>
+                                        <li class="list-group-item example10">-45,609</li>
+                                        <li class="list-group-item example10">670.002</li>
+                                        <li class="list-group-item example11"><strong>What about me!</strong></li>
+                                        <li class="list-group-item example12"><strong>How you know I'm 24?!</strong>
+                                        </li>
+                                        <li class="list-group-item example13">3564.852</li>
+                                    </ul>
+                                </div>
+                                <span class="help-block">Some example of Non-input element, any DOM element can hold
+                                    the numeric figure</span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div id="placer1"></div>
+                <div id="placer2"></div>
+
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                        <div class="alert alert-info text-center">
+                            <strong>The 'helper' can be anywhere, with any design!</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4 col-md-offset-1">
+                        <form>
+                            <div class="form-group">
+                                <label for="helperExample1">Helper 'left' alignment</label>
+                                <input type="number" class="form-control" id="helperExample1">
+                                <span class="help-block"><code>$('element').inword({helper:'left'})</code></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="helperExample2">Helper on 'top', text color 'deepblue'</label>
+                                <input type="number" class="form-control" id="helperExample2">
+                                <span
+                                    class="help-block"><code>$('element').inword({helper:'top', color : '#191970'})</code></span>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-md-4 col-md-offset-1">
+                        <form>
+                            <div class="form-group">
+                                <label for="helperExample3">Helper on 'bottom', backgroundColor 'black'</label>
+                                <input type="text" class="form-control in-word" id="helperExample3">
+                                <span
+                                    class="help-block"><code>$('element').inword({helper:'top', backgroundColor : '#000000'})</code></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="helperExample4">Defaulment alignment is 'right' position</label>
+                                <input type="number" class="form-control" id="helperExample4" />
+                                <span class="help-block">'helper' is the default behaviour
+                                    <code>$('element').inword()</code></span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                        <div class="alert alert-success text-center">
+                            <strong>If you want it of tooltip style, use 'tooltip'</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                        <form>
+                            <div class="form-group col-md-3">
+                                <label for="helperExample1">Right</label>
+                                <input type="number" data-container="body" class="form-control" id="tooltipExample1" />
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="helperExample2">Top</label>
+                                <input type="number" class="form-control" id="tooltipExample2" />
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="helperExample3">Bottom</label>
+                                <input type="text" class="form-control" id="tooltipExample3" />
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="helperExample4">Left</label>
+                                <input type="number" class="form-control" id="tooltipExample4" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                        <ul>
+                            <li>Tooltip on Right <code>$('#tooltipExample1').inword({type: 'tooltip'})</code></li>
+                            <li>Tooltip on Top
+                                <code>$('#tooltipExample2').inword({type: 'tooltip', position : 'top', backgroundColor: '#D91E18'})</code>
+                            </li>
+                            <li>Tooltip on Bottom
+                                <code>$('#tooltipExample3').inword({type: 'tooltip', position : 'bottom', color: '#000', backgroundColor: '#E9EDEF'})</code>
+                            </li>
+                            <li>Tooltip on Left
+                                <code>$('#tooltipExample4').inword({type: 'tooltip', position : 'left', backgroundColor: '#4B77BE'})</code>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                        <div class="alert alert-warning text-center">
+                            <strong>What about 'readonly' input</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                        <form>
+                            <div class="form-group col-md-4">
+                                <label for="readonlyExample1">Helper</label>
+                                <input type="number" class="form-control" readonly id="readonlyExample1"
+                                    value="73655553" />
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="readonlyExample2">Tooltip</label>
+                                <input type="number" data-container="body" class="form-control" readonly
+                                    id="readonlyExample2" value="972563.343" />
+                            </div>
+
+                            <div class="form-group col-md-4">
+                                <label for="readonlyExample3">Placer</label>
+                                <input type="text" class="form-control" readonly id="readonlyExample3"
+                                    value="-6357387" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                        <ul>
+                            <li>Readonly Helper <code>$('#readonlyExample1').inword()</code></li>
+                            <li>Readonly Tooltip
+                                <code>$('#readonlyExample2').inword({type: 'tooltip'})</code></li>
+                            <li>Readonly Placer
+                                <code>$('#readonlyExample3').inword({type: 'helper'})</code></li>
+                        </ul>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1 text-center">
+                        <h2>Fixed Data Example</h2>
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">#</th>
+                                        <th class="text-center">First</th>
+                                        <th class="text-center">Last</th>
+                                        <th class="text-center">Basic <span class="help-block">(Helper on Hover)</span>
+                                        </th>
+                                        <th class="text-center">Home Rent <span class="help-block">(Helper on
+                                                Click)</span>
+                                        </th>
+                                        <th class="text-center">Medical <span class="help-block">(Tooltip on
+                                                Right)</span>
+                                        </th>
+                                        <th class="text-center">Conveyance <span class="help-block">(Placer)</span></th>
+                                        <th class="text-center">Mobile Bill <span class="help-block">(Helper on
+                                                Left)</span>
+                                        </th>
+                                        <th class="text-center">Total <span class="help-block">(Tooltip on
+                                                Bottom)</span>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>Mark</td>
+                                        <td>Otto</td>
+                                        <td data-container="body" class="fix-helper-hover text-right">11000</td>
+                                        <td data-container="body" class="fix-helper-click text-right">4000</td>
+                                        <td data-container="body" class="fix-tooltip-right text-right">1,320</td>
+                                        <td data-container="body" class="fix-placer text-right">2000</td>
+                                        <td data-container="body" class="fix-helper-left text-right">600.50</td>
+                                        <td data-container="body" class="fix-tooltip-bottom text-right">15,320</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">2</th>
+                                        <td>Jacob</td>
+                                        <td>Thornton</td>
+                                        <td data-container="body" class="fix-helper-hover text-right">24000</td>
+                                        <td data-container="body" class="fix-helper-click text-right">5000</td>
+                                        <td data-container="body" class="fix-tooltip-right text-right">2,900</td>
+                                        <td data-container="body" class="fix-placer text-right">3040</td>
+                                        <td data-container="body" class="fix-helper-left text-right">700.66</td>
+                                        <td data-container="body" class="fix-tooltip-bottom text-right">32,600</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">3</th>
+                                        <td>John</td>
+                                        <td>Wick</td>
+                                        <td data-container="body" class="fix-helper-hover text-right">14000</td>
+                                        <td data-container="body" class="fix-helper-click text-right">6000</td>
+                                        <td data-container="body" class="fix-tooltip-right text-right">1900</td>
+                                        <td data-container="body" class="fix-placer text-right">2600</td>
+                                        <td data-container="body" class="fix-helper-left text-right">850.01</td>
+                                        <td data-container="body" class="fix-tooltip-bottom text-right">20,900</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">4</th>
+                                        <td>John</td>
+                                        <td>Doe</td>
+                                        <td data-container="body" class="fix-helper-hover text-right">14000</td>
+                                        <td data-container="body" class="fix-helper-click text-right">7000</td>
+                                        <td data-container="body" class="fix-tooltip-right text-right">3000</td>
+                                        <td data-container="body" class="fix-placer text-right">2060</td>
+                                        <td data-container="body" class="fix-helper-left text-right">920.88</td>
+                                        <td data-container="body" class="fix-tooltip-bottom text-right">21,600</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                        <ul>
+                            <li>Helper on Hover <code>$(".fix-helper-hover").inword({hover: true});</code></li>
+                            <li>Helper on Click
+                                <code>$(".fix-helper-click").inword();</code></li>
+                            <li>Tooltip on Right
+                                <code>$(".fix-tooltip-right").inword({type: 'tooltip'});</code></li>
+                            <li>Placer
+                                <code>$(".fix-placer").inword({type: 'placer', placerId: 'placer1', hover: true});</code>
+                            </li>
+                            <li>Helper on Left
+                                <code>$(".fix-helper-left").inword({ type: 'helper', position: 'left', hover: true});</code>
+                            </li>
+                            <li>Tooltip on Bottom
+                                <code>$(".fix-tooltip-bottom").inword({type: 'tooltip', position: 'bottom'});</code>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1 text-center">
+                        <h2>Input Data Example</h2>
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="inputData">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">#</th>
+                                        <th class="text-center">First</th>
+                                        <th class="text-center">Last</th>
+                                        <th class="text-center">Basic <span class="help-block">(Helper on Bottom)</span>
+                                        </th>
+                                        <th class="text-center">Home Rent <span class="help-block">(Helper on
+                                                Right)</span>
+                                        </th>
+                                        <th class="text-center">Medical <span class="help-block">(Tooltip on
+                                                Right)</span>
+                                        </th>
+                                        <th class="text-center">Conveyance <span class="help-block">(Placer)</span></th>
+                                        <th class="text-center">Mobile Bill <span class="help-block">(Helper on
+                                                Left)</span>
+                                        </th>
+                                        <th class="text-center">Total <span class="help-block">(Tooltip on
+                                                Bottom)</span>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>Mark</td>
+                                        <td>Otto</td>
+                                        <td data-container="body"><input type="number"
+                                                class="form-control input-helper-bottom" value="11000" />
+                                        </td>
+                                        <td data-container="body"><input type="number"
+                                                class="form-control input-helper-click" value="4000" />
+                                        </td>
+                                        <td data-container="body"><input type="number"
+                                                class="form-control input-tooltip-right" value="1320" />
+                                        </td>
+                                        <td data-container="body"><input type="number" class="form-control input-placer"
+                                                value="2000" /></td>
+                                        <td data-container="body"><input type="number"
+                                                class="form-control input-helper-left" readonly value="600.50" /></td>
+                                        <td data-container="body"><input type="number"
+                                                class="form-control input-tooltip-bottom" value="15320" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">2</th>
+                                        <td>Jacob</td>
+                                        <td>Thornton</td>
+                                        <td data-container="body"><input type="number"
+                                                class="form-control input-helper-bottom" value="24000" />
+                                        </td>
+                                        <td data-container="body"><input type="number"
+                                                class="form-control input-helper-click" value="5000" />
+                                        </td>
+                                        <td data-container="body"><input type="number"
+                                                class="form-control input-tooltip-right" value="2900" />
+                                        </td>
+                                        <td data-container="body"><input type="number" class="form-control input-placer"
+                                                value="3040" /></td>
+                                        <td data-container="body"><input type="number"
+                                                class="form-control input-helper-left" readonly value="700.66" /></td>
+                                        <td data-container="body"><input type="number"
+                                                class="form-control input-tooltip-bottom" value="32600" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">3</th>
+                                        <td>John</td>
+                                        <td>Wick</td>
+                                        <td data-container="body"><input type="number"
+                                                class="form-control input-helper-bottom" value="14000" />
+                                        </td>
+                                        <td data-container="body"><input type="number"
+                                                class="form-control input-helper-click" value="6000" />
+                                        </td>
+                                        <td data-container="body"><input type="number"
+                                                class="form-control input-tooltip-right" value="1900" />
+                                        </td>
+                                        <td data-container="body"><input type="number" class="form-control input-placer"
+                                                value="2600" /></td>
+                                        <td data-container="body"><input type="number"
+                                                class="form-control input-helper-left" readonly value="850.01" /></td>
+                                        <td data-container="body"><input type="number"
+                                                class="form-control input-tooltip-bottom" value="20900" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">4</th>
+                                        <td>John</td>
+                                        <td>Doe</td>
+                                        <td data-container="body"><input type="number"
+                                                class="form-control input-helper-bottom" value="14000" />
+                                        </td>
+                                        <td data-container="body"><input type="number"
+                                                class="form-control input-helper-click" value="7000" />
+                                        </td>
+                                        <td data-container="body"><input type="number"
+                                                class="form-control input-tooltip-right" value="3000" />
+                                        </td>
+                                        <td data-container="body"><input type="number" class="form-control input-placer"
+                                                value="2060" /></td>
+                                        <td data-container="body"><input type="number"
+                                                class="form-control input-helper-left" readonly value="920.88" /></td>
+                                        <td data-container="body"><input type="number"
+                                                class="form-control input-tooltip-bottom" value="21600" />
+                                        </td>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                        <ul>
+                            <li>Helper on Bottom <code>$(".input-helper-bottom").inword({position: 'bottom'});</code>
+                            </li>
+                            <li>Helper on Right
+                                <code>$(".input-helper-right").inword();</code></li>
+                            <li>Tooltip on Right
+                                <code>$(".input-tooltip-right").inword({type: 'tooltip'});</code></li>
+                            <li>Placer
+                                <code>$(".input-placer").inword({type: 'placer', placerId: 'placer2'});</code>
+                            </li>
+                            <li>Helper on Left
+                                <code>$(".input-helper-left").inword({position: 'left'});</code>
+                            </li>
+                            <li>Tooltip on Bottom
+                                <code>$(".input-tooltip-bottom").inword({type: 'tooltip', position: 'bottom'});</code>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+            <div id="documentation" class="tab-pane fade">
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+
+                        <h3>How to Use</h3>
+                        <p>
+                            InWord works with it jQuery and Bootstrap. After Jquery and Bootstrap, just add the
+                            inword.js and inword.css, and see the magic!
+                        </p>
+                        <pre><xmp><!-- CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="inword.css">
+
+<!-- SCRIPT-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<script src="inword.js"></script></xmp></pre>
+
+                        <h3>Basic Usage</h3>
+                        <p>Just add <code>$('element').inword()</code> to your DOM element, and nothing else!</p>
+
+                        <h3>Key Features</h3>
+                        <ul>
+                            <li>Three Different Styles, use which you require!</li>
+                            <li>Responsive Design/Mobile Friendly</li>
+                            <li>All Modern Browser Compatibility</li>
+                            <li>Up to Trillion support</li>
+                            <li>Negative Figure, Decimal Point detection</li>
+                            <li>Prefix/Suffix Support</li>
+                            <li>Case Utilization Support</li>
+                            <li>Full Customization is possible</li>
+                        </ul>
+
+                        <h3>Extended Usage</h3>
+                        <pre>
+$('elements').inwords({
+    type: "helper",                     //default#helper, tooltip, placer
+    value: null,                        //if value is given, it will be override origina value
+    position: "right",                  //applicable for 'tooltip/helper' only; values : right, left, top, bottom; default: right
+    color: "#ffffff",
+    backgroundColor: "#47a3da",         
+    prefix: null,
+    suffix: null,
+    placerId: null,                     //DOM id where you want to show the placer, applicable for placer only
+    hover: false,                       //applicable for non-input element only
+    case: 'ucfirst',                    //ucfirst, upper, lower
+    wordJoiner: '-',                    //twenty-five, forty-five, if revoked twenty five, forty five
+    thousandSeperator: '',              //nine thousand four hundred sixty, if ',' given, nine thousand, four hundred sixty
+    ignoreDecimal: false,               //decimal value will not be shown
+});
+            </pre>
+
+                        <h3>Disabled Input</h3>
+                        <p>
+                            InWord has nothing to do with the disabled Input, in such case, take the disabled input
+                            inside any DOM element i.e. span, div etc. and define the value and other properties applied
+                            on the parent DOM element
+                            <pre><xmp><span class="d-inline-block" id="disabledHelper">
+    <input type="number" class="form-control" disabled value="546898">
+</span></xmp></pre>
+                            <code>$('#disabledHelper').inword({value: 546898})</code></p>
+                        <h3>Full Documentation</h3>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">Parameter</th>
+                                    <th class="text-center">Data Type</th>
+                                    <th class="text-center">Values</th>
+                                    <th class="text-center">Default</th>
+                                    <th class="text-center">Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="text-center">type</td>
+                                    <td class="text-center">string</td>
+                                    <td>helper&nbsp;|&nbsp;tooltip&nbsp;|&nbsp;placer</td>
+                                    <td class="text-center">helper</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">value</td>
+                                    <td class="text-center">numeric</td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
+                                    <td>If 'value' is given, it will ignore the original value of the DOM and this value
+                                        will be shown in words
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">position</td>
+                                    <td class="text-center">string</td>
+                                    <td class="text-center">right&nbsp;|&nbsp;left&nbsp;|&nbsp;top&nbsp;|&nbsp;bottom
+                                    </td>
+                                    <td class="text-center">right</td>
+                                    <td>applicable for type helper & tooltip, defines which position in words will be
+                                        shown
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">color</td>
+                                    <td class="text-center">string</td>
+                                    <td></td>
+                                    <td class="text-center">#fff</td>
+                                    <td>text color, any valid hex color code</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">backgroundColor</td>
+                                    <td class="text-center">string</td>
+                                    <td></td>
+                                    <td class="text-center">#47a3da</td>
+                                    <td>background color, any valid hex color code</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">prefix</td>
+                                    <td class="text-center">string</td>
+                                    <td></td>
+                                    <td class="text-center"></td>
+                                    <td>prefix will be shown at the front of in words, useful for showing data like '$
+                                        forty five'</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">suffix</td>
+                                    <td class="text-center">string</td>
+                                    <td></td>
+                                    <td class="text-center"></td>
+                                    <td>prefix will be shown at the end of in words, useful for showing data like 'forty
+                                        five only'</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">placerId</td>
+                                    <td class="text-center">string</td>
+                                    <td></td>
+                                    <td class="text-center"></td>
+                                    <td>
+                                        applicable for 'placer' only, DOM ID of where to show the inwords value. If this
+                                        value is given, in word will be shown inside this element in your page. Inword
+                                        does not handle any event/design of this element except showing the word value
+                                        inside this
+                                        element, for any event/design i.e. show/hide this element, user must do it by
+                                        himself
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">hover</td>
+                                    <td class="text-center">boolean</td>
+                                    <td class="text-center">true&nbsp;|&nbsp;false</td>
+                                    <td class="text-center">false</td>
+                                    <td>applicalble for only non-input element, decide whether to show Inword on the
+                                        hover of the element</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">case</td>
+                                    <td class="text-center">string</td>
+                                    <td>ucfirst&nbsp;|&nbsp;upper&nbsp;|&nbsp;lower</td>
+                                    <td class="text-center">ucfirst</td>
+                                    <td>handle word case of Inwords</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">wordJoiner</td>
+                                    <td class="text-center">string</td>
+                                    <td></td>
+                                    <td class="text-center">-</td>
+                                    <td>
+                                        shows Inwords like 'twenty-five', 'forty-five', if empty string '' is given for
+                                        this value, Inwords will be shown as 'twenty five', 'forty five'
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">thousandSeperator</td>
+                                    <td class="text-center">string</td>
+                                    <td></td>
+                                    <td class="text-center"></td>
+                                    <td>
+                                        shows Inwords like 'nine thousand four hundred sixty', if ',' given for this
+                                        value, 'nine thousand, four hundred sixty'
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">ignoreDecimal</td>
+                                    <td class="text-center">boolean</td>
+                                    <td class="text-center">true&nbsp;|&nbsp;false</td>
+                                    <td class="text-center">false</td>
+                                    <td>
+                                        if true, decimal value will not be shown
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style type="text/css">
+        #placer1 {
+            position: fixed;
+            top: 40%;
+            left: 70%;
+            background-color: chocolate;
+            color: ghostwhite;
+            max-width: 300px;
+            height: auto;
+            padding: 10px;
+            border-radius: 5px;
+            -webkit-box-shadow: -5px 6px 8px -2px rgba(0, 0, 0, 0.58);
+            -moz-box-shadow: -5px 6px 8px -2px rgba(0, 0, 0, 0.58);
+            box-shadow: -5px 6px 8px -2px rgba(0, 0, 0, 0.58);
+            display: none;
+            z-index: 10;
+        }
+
+        #placer2 {
+            position: fixed;
+            top: 75%;
+            left: 10%;
+            background-color: mediumslateblue;
+            color: navy;
+            max-width: 300px;
+            height: auto;
+            padding: 10px;
+            border-radius: 5px;
+            -webkit-box-shadow: -5px 6px 8px -2px rgba(0, 0, 0, 0.58);
+            -moz-box-shadow: -5px 6px 8px -2px rgba(0, 0, 0, 0.58);
+            box-shadow: -5px 6px 8px -2px rgba(0, 0, 0, 0.58);
+            display: none;
+            z-index: 10;
+        }
+
+        table#inputData tbody tr td input {
+            text-align: right;
+        }
+    </style>
+
+    <script type="text/javascript">
+        $("#example1").inword();
+        $("#example2").inword({
+            type: 'tooltip'
+        });
+        $("#example3").inword({
+            type: 'placer'
+        });
+        $("#example4").inword({
+            type: 'placer',
+            placerId: 'placer1'
+        });
+        $("#example5").inword({
+            type: 'placer',
+            placerId: 'placer2'
+        });
+
+        $("#example6").inword();
+        $("#example7").inword({
+            value: 546898,
+            hover: true
+        });
+        $("#example8").inword({
+            type: 'tooltip'
+        });
+        $("#example9").inword({
+            prefix: '$',
+            suffix: 'only'
+        });
+        $(".example10").inword({
+            hover: true
+        });
+        $(".example11").inword({
+            type: 'tooltip',
+            position: 'top',
+            value: 89,
+            prefix: 'I\'ve set your value to : '
+        });
+        $(".example12").inword({
+            hover: true,
+            value: 24,
+            prefix: 'Yes, I know you are ',
+            suffix: '! AWESOME'
+        });
+        $(".example13").inword({
+            ignoreDecimal: true,
+            hover: true
+        });
+
+        //Inword has nothing to do with the 'placerId' block, 
+        //User can define any customization with 'placerId' as required
+
+        //Customizing 'placer1'
+        $("#example4").bind("change keyup input", function () {
+            (this.value != '') ? $("#placer1").show('slow') : $("#placer1").hide('slow');
+        });
+
+        $("#example4").blur(function () {
+            $("#placer1").hide('slow')
+        });
+
+        $(".fix-placer").hover(function () {
+            $("#placer1").show();
+        });
+
+        $(".fix-placer").mouseleave(function () {
+            $("#placer1").hide();
+        });
+
+        //Customizing 'placer2'
+        $("#example5").bind("change keyup input", function () {
+            (this.value != '') ? $("#placer2").show('slow') : $("#placer2").hide('slow');
+        });
+
+        $("#example5").blur(function () {
+            $("#placer2").hide('slow')
+        });
+
+        $(".inpu-placer").hover(function () {
+            $("#placer2").show();
+        });
+
+        $(".input-placer").mouseleave(function () {
+            $("#placer2").hide();
+        });
+
+        //helper example
+        $("#helperExample1").inword({
+            position: 'left'
+        });
+        $("#helperExample2").inword({
+            position: 'top',
+            color: '#191970'
+        });
+        $("#helperExample3").inword({
+            position: 'bottom',
+            backgroundColor: '#000'
+        });
+        $("#helperExample4").inword();
+
+        //tooltip example
+        $("#tooltipExample1").inword({
+            type: 'tooltip'
+        });
+        $("#tooltipExample2").inword({
+            type: 'tooltip',
+            position: 'top',
+            backgroundColor: '#D91E18'
+        });
+        $("#tooltipExample3").inword({
+            type: 'tooltip',
+            position: 'bottom',
+            color: '#000',
+            backgroundColor: '#E9EDEF',
+        });
+        $("#tooltipExample4").inword({
+            type: 'tooltip',
+            position: 'left',
+            backgroundColor: '#4B77BE'
+        });
+
+        //readonly example
+        $("#readonlyExample1").inword({
+            thousandSeperator: ','
+        });
+        $("#readonlyExample2").inword({
+            type: 'tooltip'
+        });
+        $("#readonlyExample3").inword({
+            type: 'placer'
+        });
+
+        //fix table example
+        $(".fix-helper-hover").inword({
+            hover: true
+        });
+        $(".fix-helper-click").inword();
+        $(".fix-tooltip-right").inword({
+            type: 'tooltip'
+        });
+        $(".fix-placer").inword({
+            type: 'placer',
+            placerId: 'placer1',
+            hover: true
+        });
+        $(".fix-helper-left").inword({
+            type: 'helper',
+            position: 'left',
+            hover: true
+        });
+        $(".fix-tooltip-bottom").inword({
+            type: 'tooltip',
+            position: 'bottom'
+        });
+
+        //input table example
+        $(".input-helper-bottom").inword({
+            position: 'bottom'
+        });
+        $(".input-helper-click").inword();
+        $(".input-tooltip-right").inword({
+            type: 'tooltip'
+        });
+        $(".input-placer").inword({
+            type: 'placer',
+            placerId: 'placer2'
+        });
+        $(".input-helper-left").inword({
+            type: 'helper',
+            position: 'left',
+            hover: true
+        });
+        $(".input-tooltip-bottom").inword({
+            type: 'tooltip',
+            position: 'bottom'
+        });
+    </script>
+
+
+</body>
+
+</html>

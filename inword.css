@@ -1,0 +1,94 @@
+/*!
+ * Inword v1.0.0 (https://bibachona.com/inword)
+ * Release: 18th Oct, 2019
+ * Author : Khondoker Khalid Jahangir
+ *  */
+
+/* General styles for helper */
+.helper {
+	background: #47a3da;
+	position: fixed;
+	padding: 10px;
+	display: block;
+	color: #fff;
+	font-size: 1.1em;
+	font-weight: 300;
+	-webkit-box-shadow: -5px 6px 8px -2px rgba(0, 0, 0, 0.58);
+	-moz-box-shadow: -5px 6px 8px -2px rgba(0, 0, 0, 0.58);
+	box-shadow: -5px 6px 8px -2px rgba(0, 0, 0, 0.58);
+}
+
+/* Orientation-dependent styles for the content of the helper */
+
+.helper-vertical {
+	width: 240px;
+	top: 40%;
+	z-index: 1000;
+}
+
+.helper-horizontal {
+	width: 20%;
+	left: 40%;
+	z-index: 1000;
+	overflow: hidden;
+}
+
+@media (max-width: 576px) { 
+	.helper-horizontal {
+		left: 20%;
+		width: 50%;
+	}
+}
+
+/* Vertical helper that slides from the left or right */
+
+.helper-left {
+	left: -240px;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	
+}
+
+.helper-right {
+	right: -240px;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
+
+.helper-left.helper-open {
+	left: 0px;
+}
+
+.helper-right.helper-open {
+	right: 0px;
+}
+
+/* Horizontal helper that slides from the top or bottom */
+
+.helper-top {
+	top: -150px;
+	border-bottom-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
+
+.helper-bottom {
+	bottom: -150px;
+	border-top-right-radius: 5px;
+	border-top-left-radius: 5px;
+}
+
+.helper-top.helper-open {
+	top: 0px;
+}
+
+.helper-bottom.helper-open {
+	bottom: 0px;
+}
+
+/* Transitions */
+
+.helper{
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
