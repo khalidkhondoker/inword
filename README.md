@@ -1,17 +1,19 @@
+### Check it here
+[Demo!](http://bibachona.com/inword)
 ### How to Use
 InWord works with it jQuery and Bootstrap. After Jquery and Bootstrap, just add the inword.js and inword.css, and see the magic!
-    <!-- CSS-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="inword.css">
+```
+<!-- CSS-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="inword.css">
 
-    <!-- SCRIPT-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-    <script src="inword.js"></script>
-
+<!-- SCRIPT-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<script src="inword.js"></script>
+```
 ### Basic Usage
 Just add <code>$('element').inword()</code> to your DOM element, and nothing else!
-
 ### Key Features
 * Three Different Styles, use which you require!
 * Responsive Design/Mobile Friendly
