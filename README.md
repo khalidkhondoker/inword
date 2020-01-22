@@ -1,5 +1,5 @@
 ### Check it here
-[Demo!](http://bibachona.com/inword)
+[Demo!](https://khalidkhondoker.github.io/inword/)
 ### How to Use
 InWord works with it jQuery and Bootstrap. After Jquery and Bootstrap, just add the inword.js and inword.css, and see the magic!
 ```
